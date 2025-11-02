@@ -1,0 +1,111 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/home/maryam/Desktop/Blockchain/Crowd_Funding_App/hardhat-backend/contracts/Crowdfunding_Maryam.sol": {
+      "lastModificationDate": 1760875791513,
+      "contentHash": "ad91cd48d4c0a2174e73707d032d8143",
+      "sourceName": "contracts/Crowdfunding_Maryam.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.19"
+      ],
+      "artifacts": [
+        "Crowdfunding_Maryam",
+        "IKYCRegistry"
+      ]
+    },
+    "/home/maryam/Desktop/Blockchain/Crowd_Funding_App/hardhat-backend/contracts/KYCRegistry_Maryam.sol": {
+      "lastModificationDate": 1760875762193,
+      "contentHash": "fd4d4000bbaf70ad8c5c38bcd4b320b6",
+      "sourceName": "contracts/KYCRegistry_Maryam.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.19"
+      ],
+      "artifacts": [
+        "KYCRegistry_Maryam"
+      ]
+    },
+    "/home/maryam/Desktop/Blockchain/Crowd_Funding_App/hardhat-backend/contracts/Lock.sol": {
+      "lastModificationDate": 1760512446236,
+      "contentHash": "ba914e7a4fdf61e278ac86d7be240d67",
+      "sourceName": "contracts/Lock.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.19"
+      ],
+      "artifacts": [
+        "Lock"
+      ]
+    }
+  }
+}
