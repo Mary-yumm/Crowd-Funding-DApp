@@ -1,7 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
-contract KYCRegistry_Maryam {
+import "@openzeppelin/contracts/access/Ownable.sol";
+
+contract KYCRegistry_Maryam is Ownable {
     
     // Struct to store KYC information
     struct KYCRequest {
@@ -12,9 +14,6 @@ contract KYCRegistry_Maryam {
         bool exists;
         uint256 timestamp;
     }
-    
-    // Admin address
-    address public admin;
     
     // Mapping from address to KYC request
     mapping(address => KYCRequest) public kycRequests;
@@ -27,20 +26,12 @@ contract KYCRegistry_Maryam {
     event KYCApproved(address indexed user, string fullName);
     event KYCRejected(address indexed user);
     
-    // Modifiers
-    modifier onlyAdmin() {
-        require(msg.sender == admin, "Only admin can perform this action");
-        _;
-    }
-    
     modifier notVerified() {
         require(!kycRequests[msg.sender].isVerified, "Already verified");
         _;
     }
     
-    constructor() {
-        admin = msg.sender;
-    }
+    constructor() {}
     
     // Submit KYC request
     function submitKYC(string memory _fullName, string memory _cnic) public notVerified {
@@ -63,7 +54,7 @@ contract KYCRegistry_Maryam {
     }
     
     // Approve KYC request
-    function approveKYC(address _user) public onlyAdmin {
+    function approveKYC(address _user) public onlyOwner {
         require(kycRequests[_user].exists, "KYC request does not exist");
         require(!kycRequests[_user].isVerified, "Already verified");
         
@@ -73,7 +64,7 @@ contract KYCRegistry_Maryam {
     }
     
     // Reject KYC request
-    function rejectKYC(address _user) public onlyAdmin {
+    function rejectKYC(address _user) public onlyOwner {
         require(kycRequests[_user].exists, "KYC request does not exist");
         
         // Remove from mapping and array
@@ -116,5 +107,11 @@ contract KYCRegistry_Maryam {
     // Get total KYC requests count
     function getTotalKYCRequests() public view returns (uint256) {
         return allKYCRequests.length;
+    }
+
+    // Backwards-compatible admin getter for existing interfaces
+    // Returns the contract owner (to maintain compatibility with IKYCRegistry.admin())
+    function admin() public view returns (address) {
+        return owner();
     }
 }

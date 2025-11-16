@@ -1,12 +1,14 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
+import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+
 interface IKYCRegistry {
     function isUserVerified(address _user) external view returns (bool);
     function admin() external view returns (address);
 }
 
-contract Crowdfunding_Maryam {
+contract Crowdfunding_Maryam is ReentrancyGuard {
     
     // Campaign status enum
     enum CampaignStatus { Active, Completed, Withdrawn }
@@ -159,6 +161,7 @@ contract Crowdfunding_Maryam {
         public
         campaignExists(_campaignId)
         onlyCampaignCreator(_campaignId)
+        nonReentrant
     {
         Campaign storage campaign = campaigns[_campaignId];
         

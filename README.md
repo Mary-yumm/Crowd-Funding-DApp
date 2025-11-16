@@ -2,9 +2,6 @@
 ## Demo Video
 [Watch the demo](assets/demo.mp4)
 
-## Screenshots
-![Home](assets/screenshots/)
-
 
 ## Overview
 The Crowd Funding App is a decentralized application (dApp) built on the Ethereum blockchain. It allows users to create, manage, and contribute to crowdfunding campaigns in a secure and transparent manner. The app also includes a Know Your Customer (KYC) registry to ensure compliance and trustworthiness among participants.
@@ -63,10 +60,25 @@ This project is divided into two main components:
    ```bash
    npx hardhat compile
    ```
-4. Deploy the contracts:
+4. (Local development) Start a Hardhat node in a dedicated terminal:
    ```bash
-   npx hardhat run scripts/deploy.js --network <network-name>
+   npx hardhat node
    ```
+   This launches a persistent local chain at `http://127.0.0.1:8545` with funded test accounts.
+5. Deploy the contracts (choose one of the networks):
+   - To the running local node:
+     ```bash
+     npx hardhat run scripts/deploy.js --network localhost
+     ```
+   - To the in-memory ephemeral Hardhat network (no separate node process needed):
+     ```bash
+     npx hardhat run scripts/deploy.js --network hardhat
+     ```
+   - To Sepolia (after creating `.env`):
+     ```bash
+     npx hardhat run scripts/deploy.js --network sepolia
+     ```
+   If you see an error deploying to `localhost`, ensure the node from step 4 is still running.
 
 ### Frontend
 1. Navigate to the frontend directory:
@@ -81,6 +93,49 @@ This project is divided into two main components:
    ```bash
    npm start
    ```
+
+---
+
+## Deployment
+
+### Option A — Local Hardhat network (recommended for development)
+1. Start a local node (terminal 1):
+   ```bash
+   npx hardhat node
+   ```
+2. Deploy contracts to localhost (terminal 2):
+   ```bash
+   npx hardhat run scripts/deploy.js --network localhost
+   ```
+   - This script saves contract addresses and ABIs to `react-frontend/src/contracts/`:
+     - `contract-addresses.json`
+     - `KYCRegistry.json`
+     - `Crowdfunding.json`
+3. In MetaMask:
+   - Add the network: HTTP RPC `http://127.0.0.1:8545`, Chain ID `31337`.
+   - Import one of the private keys printed by Hardhat into MetaMask (from the node output).
+4. Start the frontend and connect MetaMask to the localhost network.
+
+### Option B — Sepolia testnet
+1. Create an `.env` file in `hardhat-backend/` with your RPC URL and deployer private key:
+   ```bash
+   SEPOLIA_RPC_URL=https://sepolia.infura.io/v3/<YOUR_KEY>
+   PRIVATE_KEY=0x<YOUR_PRIVATE_KEY>
+   ```
+   - Never commit your `.env` file.
+   - Fund your deployer account with Sepolia ETH from a faucet.
+2. Deploy to Sepolia:
+   ```bash
+   npx hardhat run scripts/deploy.js --network sepolia
+   ```
+   - The script will again save addresses and ABIs to `react-frontend/src/contracts/`.
+3. In MetaMask:
+   - Switch to the Sepolia network.
+   - Use the deployed addresses from `react-frontend/src/contracts/contract-addresses.json`.
+
+Notes
+- The deployment script logs a summary with addresses and also persists them to the frontend folder.
+- If you change contracts, re-run compile and deployment to refresh ABIs and addresses.
 
 ---
 

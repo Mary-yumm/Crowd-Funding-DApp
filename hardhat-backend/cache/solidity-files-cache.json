@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/home/maryam/Desktop/Blockchain/Crowd_Funding_App/hardhat-backend/contracts/Crowdfunding_Maryam.sol": {
-      "lastModificationDate": 1760875791513,
-      "contentHash": "ad91cd48d4c0a2174e73707d032d8143",
+      "lastModificationDate": 1763297647313,
+      "contentHash": "04224eec89e4efb57589a8dee5d55b24",
       "sourceName": "contracts/Crowdfunding_Maryam.sol",
       "solcConfig": {
         "version": "0.8.19",
@@ -28,7 +28,9 @@
           }
         }
       },
-      "imports": [],
+      "imports": [
+        "@openzeppelin/contracts/security/ReentrancyGuard.sol"
+      ],
       "versionPragmas": [
         "^0.8.19"
       ],
@@ -38,8 +40,8 @@
       ]
     },
     "/home/maryam/Desktop/Blockchain/Crowd_Funding_App/hardhat-backend/contracts/KYCRegistry_Maryam.sol": {
-      "lastModificationDate": 1760875762193,
-      "contentHash": "fd4d4000bbaf70ad8c5c38bcd4b320b6",
+      "lastModificationDate": 1763297647313,
+      "contentHash": "56a3995c7554b2bba7171d0c35837b43",
       "sourceName": "contracts/KYCRegistry_Maryam.sol",
       "solcConfig": {
         "version": "0.8.19",
@@ -64,7 +66,9 @@
           }
         }
       },
-      "imports": [],
+      "imports": [
+        "@openzeppelin/contracts/access/Ownable.sol"
+      ],
       "versionPragmas": [
         "^0.8.19"
       ],
@@ -105,6 +109,113 @@
       ],
       "artifacts": [
         "Lock"
+      ]
+    },
+    "/home/maryam/Desktop/Blockchain/Crowd_Funding_App/hardhat-backend/node_modules/@openzeppelin/contracts/security/ReentrancyGuard.sol": {
+      "lastModificationDate": 1763296805645,
+      "contentHash": "1535f8c0c68463f8c1b5239f7584e71f",
+      "sourceName": "@openzeppelin/contracts/security/ReentrancyGuard.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ReentrancyGuard"
+      ]
+    },
+    "/home/maryam/Desktop/Blockchain/Crowd_Funding_App/hardhat-backend/node_modules/@openzeppelin/contracts/access/Ownable.sol": {
+      "lastModificationDate": 1763296805645,
+      "contentHash": "5a20b2cad87ddb61c7a3a6af21289e28",
+      "sourceName": "@openzeppelin/contracts/access/Ownable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../utils/Context.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Ownable"
+      ]
+    },
+    "/home/maryam/Desktop/Blockchain/Crowd_Funding_App/hardhat-backend/node_modules/@openzeppelin/contracts/utils/Context.sol": {
+      "lastModificationDate": 1763296805597,
+      "contentHash": "f07feb4a44b1a4872370da5aa70e8e46",
+      "sourceName": "@openzeppelin/contracts/utils/Context.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Context"
       ]
     }
   }

@@ -1,0 +1,2 @@
+# Keep secrets out of git
+.env
