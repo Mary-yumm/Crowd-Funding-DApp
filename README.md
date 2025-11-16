@@ -1,4 +1,10 @@
 # Crowd Funding App
+## Demo Video
+[Watch the demo](assets/demo.mp4)
+
+## Screenshots
+![Home](assets/screenshots/)
+
 
 ## Overview
 The Crowd Funding App is a decentralized application (dApp) built on the Ethereum blockchain. It allows users to create, manage, and contribute to crowdfunding campaigns in a secure and transparent manner. The app also includes a Know Your Customer (KYC) registry to ensure compliance and trustworthiness among participants.
